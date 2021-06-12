@@ -4,27 +4,11 @@ using UnityEngine;
 
 public class OncomingVehicles : MonoBehaviour
 {
-    private float speed = 10f;
-    private bool start;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        start = false;
-    }
+    private float speed = 11f;    
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        if (PlayerController.playerController.horizontalInput != 0 || PlayerController.playerController.forwardInput != 0)
-        {
-            start = true;
-        }
-
-        if (start)
-        {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }
-        
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);     
     }
 }

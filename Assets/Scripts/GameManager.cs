@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public int numPlayers;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +26,24 @@ public class GameManager : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-        else if (other.gameObject.CompareTag("Player"))
+
+        if (other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (SceneManager.GetActiveScene().buildIndex != 4)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            else
+            {                
+                other.gameObject.SetActive(false);
+                
+                numPlayers += 1;
+                
+                if (numPlayers == 2)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }                    
+            }
         }
     }
 

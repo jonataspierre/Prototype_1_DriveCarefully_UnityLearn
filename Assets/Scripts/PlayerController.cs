@@ -5,34 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Camera")]
     public Camera mainCamera;
     public Camera hoodCamera;
 
+    [Header("Speeds")]
     private float speed = 20.0f;
     private float turnSpeed = 45.0f;
 
+    [Header("Inputs")]
+    public string inputID;
     public float horizontalInput;
     public float forwardInput;
-
-    public bool grounded;
-
-    public static PlayerController playerController;
+    public KeyCode switchKey;
 
     // Start is called before the first frame update
     void Start()
-    {
-        playerController = this;
+    {        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         ReadInput();
-        
+
         Move();        
 
         // This is where we get player input for to switch camera view
-        if (Input.GetButtonDown("Jump") && SceneManager.GetActiveScene().buildIndex == 2)
+        if (Input.GetKeyDown(switchKey) && SceneManager.GetActiveScene().buildIndex > 2)
         {
             mainCamera.enabled = !mainCamera.enabled;
             hoodCamera.enabled = !hoodCamera.enabled;
@@ -42,8 +43,8 @@ public class PlayerController : MonoBehaviour
     void ReadInput()
     {
         // This is where we get player inputs
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+        forwardInput = Input.GetAxis("Vertical" + inputID);
+        horizontalInput = Input.GetAxis("Horizontal" + inputID);        
     }
     
     void Move()

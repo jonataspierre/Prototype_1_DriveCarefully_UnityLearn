@@ -2,10 +2,10 @@
 
 This project/challenge of Unity Learn outlines four potential bonus features for the Driving Simulation Prototype at varying levels of difficulty: 
 
-* Easy: Obstacle Pyramids
-* Medium: Oncoming vehicles
-* Hard: Camera switcher
-* Expert: Local multiplayer
+* **Easy:** Obstacle Pyramids
+* **Medium:** Oncoming vehicles
+* **Hard:** Camera switcher
+* **Expert:** Local multiplayer
 
 # Available:
 

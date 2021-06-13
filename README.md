@@ -7,7 +7,7 @@ This project/challenge of Unity Learn outlines four potential bonus features for
 * **Hard:** Camera switcher
 * **Expert:** Local multiplayer
 
-# Available:
+# Available MVP:
 
 # [:video_game: Game Play Here :joystick:](https://play.unity.com/mg/other/web-5vfy1)
 

@@ -6,18 +6,25 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int numPlayers;
-    
-    
+    public bool win;
+    public string winnerPlayer;
+
+    public static GameManager gameManager;
+        
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = this;
+        win = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,35 +36,26 @@ public class GameManager : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            if (SceneManager.GetActiveScene().buildIndex != 4)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
-            else
-            {                
-                other.gameObject.SetActive(false);
-                
-                numPlayers += 1;
-                
-                if (numPlayers == 2)
+            if (!win)
+            {            
+                if (SceneManager.GetActiveScene().buildIndex != 4)
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                }                    
-            }
+                }
+                else
+                {
+                    numPlayers += 1;
+                    
+                    if (numPlayers == 2)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    }
+                    else
+                    {
+                        other.gameObject.SetActive(false);
+                    }
+                }
+            }            
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(sceneLoad());
-        }
-    }  
-
-    private IEnumerator sceneLoad()
-    {
-        yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    }    
 }

@@ -23,11 +23,11 @@ This project/challenge of Unity Learn outlines four potential bonus features for
 * **Medium Level:**
   * ***Move:*** A (turn left) W (forward) S (backward) D (turn right) or Arrows (:arrow_left: :arrow_up: :arrow_down: :arrow_right:);
 
-* **Difficult Level:**
+* **Hard Level:**
   * ***Move:*** A (turn left) W (forward) S (backward) D (turn right) or Arrows (:arrow_left: :arrow_up: :arrow_down: :arrow_right:);
   * ***Switch camera view:*** Space;
 
-* **Difficult Level:**
+* **Expert Level:**
   * ***Move Player 1:*** A (tap left) W (ahead) S (aft) D (tap right);
   * ***Switch camera view Player 1:*** Space;  
   * ***Move Player 2:*** Arrow (:arrow_left: :arrow_up: :arrow_down: :arrow_right:);
